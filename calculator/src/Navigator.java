@@ -12,7 +12,8 @@ public class Navigator {
 
             switch (path) {
                 case 1 -> {
-                    
+                    Average AverageObj = new Average();
+                    AverageObj.entryPoint();
                 }
                 case 2 -> {
                     Imc ImcObj = new Imc();
