@@ -1,15 +1,8 @@
 import java.util.Scanner;
 
 public class Imc {
-
-    public Scanner d_scanf = new Scanner(System.in);
-    public void entryPoint() {
-        boolean bool = true;
-        startLogic(bool);
-    }
-
-    private void startLogic(boolean x) {
-        if (!(x)) {System.exit(0);}
+    private Scanner scanner;
+    public void startLogic() {
         float height = getValue("HEIGHT(cm)") / 100;
         float weight = getValue("WEIGHT");
         float imc = weight / (height * height);
@@ -19,7 +12,7 @@ public class Imc {
     private float getValue(String str) {
         System.out.print("ENTER YOUR " + str + ": ");
         while (true) {
-            float input = d_scanf.nextFloat();
+            float input = scanner.nextFloat();
             if (input > 0) {
                 return input;
             } else {

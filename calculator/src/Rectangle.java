@@ -1,22 +1,9 @@
-import java.util.Scanner;
 
 /* Mensagem padrão de erro de input:
 System.out.println("PLEASE, INSERT A VALID INPUT!\nENTRY: ");
  */
 public class Rectangle {
-
-    public Scanner d_scanf = new Scanner(System.in);
-
-    // This is the entry point from the main function
-    public void entryPoint() {
-        startLogic(true);
-    }
-
-    private void startLogic(boolean x) {
-        // Here the _Logic_ checks if _Entry_point is activated, mostly for testing
-        if (!x) {
-            System.exit(0);
-        }
+    public void startLogic() {
 
         double valueHeight = getDouble("HEIGHT");
         double valueWidth = getDouble("WIDTH");
@@ -29,7 +16,7 @@ public class Rectangle {
         System.out.print("ENTER THE " + placeholder + " VALUE: ");
         double var;
         while (true) {
-            var = d_scanf.nextDouble();
+            var = scanner.nextDouble();
             if (!(var > 0)) {
                 System.out.print("\nPLEASE, INSERT A VALID INPUT!\nENTRY: ");
                 continue;

@@ -1,27 +1,28 @@
 import java.util.Scanner;
 
 public class Navigator {
-    Scanner d_scanf = new Scanner (System.in);
+
+    private Scanner scanner;
     public void access () {
         System.out.println("'1' FOR AVERAGE;\n'2' FOR IMC;\n'3' FOR RECTANGLE AREA.");
         System.out.print("WHAT OPERATION WOULD YOU LIKE TO DO?\nENTRY: ");
 
         // Hub para acessar os outros arquivos .java
         while (true) {
-            short path = d_scanf.nextShort();
+            short path = scanner.nextShort();
 
             switch (path) {
                 case 1 -> {
                     Average AverageObj = new Average();
-                    AverageObj.entryPoint();
+                    AverageObj.startLogic();
                 }
                 case 2 -> {
                     Imc ImcObj = new Imc();
-                    ImcObj.entryPoint();
+                    ImcObj.startLogic();
                 }
                 case 3 -> {
                     Rectangle RectangleObj = new Rectangle();
-                    RectangleObj.entryPoint();
+                    RectangleObj.startLogic();
                 }
                 case 4 -> {
                 }
@@ -34,7 +35,7 @@ public class Navigator {
                     continue;
                 }
             }
-            d_scanf.close();
+            scanner.close();
             break;
         }
     }
