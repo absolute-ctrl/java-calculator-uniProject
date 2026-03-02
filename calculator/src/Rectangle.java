@@ -14,7 +14,7 @@ public class Rectangle {
 
     private void startLogic(boolean x) {
         // Here the _Logic_ checks if _Entry_point is activated, mostly for testing
-        if (x != true) {
+        if (!x) {
             System.exit(0);
         }
 
