@@ -1,7 +1,13 @@
-﻿import java.util.Scanner;
+import java.util.Scanner;
 
 public class ExchangeRate {
+
     private Scanner scanner;
+
+    public ExchangeRate(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
     public void startLogic() {
         System.out.println("EXCHANGE RATE CALCULATOR\n");
         System.out.println("[BRL] TO [USD] SELL VALUE AS OF (03.01.2026): 5.1642");

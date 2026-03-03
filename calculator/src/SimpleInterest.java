@@ -1,17 +1,23 @@
-﻿import java.util.Scanner;
+import java.util.Scanner;
 
 public class SimpleInterest {
+
     private Scanner scanner;
-    public void startLogic () {
-        System.out.println("SIMPLE INTEREST CALCULATOR\n");
-        float C = returnValue("INITIAL CAPITAL");
-        float i = returnValue("INTEREST RATE");
-        float t = returnValue("NUMBER OF MONTHS");
-        float V = C * (1 + (i / 100)) * t;
-        System.out.println("THE FINAL CAPITAL IS: " + V);
+
+    public SimpleInterest(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    private float returnValue (String str) {
+    public void startLogic() {
+        System.out.println("SIMPLE INTEREST CALCULATOR\n");
+        float capital = returnValue("INITIAL CAPITAL");
+        float rate = returnValue("INTEREST RATE");
+        float months = returnValue("NUMBER OF MONTHS");
+        float finalValue = capital * (1 + (rate / 100) * months);
+        System.out.println("THE FINAL CAPITAL IS: " + finalValue);
+    }
+
+    private float returnValue(String str) {
         System.out.print("INSERT THE " + str + " VALUE: ");
         while (true) {
             float input = scanner.nextFloat();
@@ -23,7 +29,4 @@ public class SimpleInterest {
             }
         }
     }
-
-
-
 }

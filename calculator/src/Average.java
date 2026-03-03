@@ -1,14 +1,20 @@
 import java.util.Scanner;
 
 public class Average {
+
     private Scanner scanner;
-    public void startLogic () {
+
+    public Average(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void startLogic() {
         int numGrades = nGrades();
 
         float[] individualGrade = new float[numGrades];
         float bruteAverage = 0;
         for (int i = 0; i < numGrades; i++) {
-            System.out.println("ENTER THE GRADE " + (i + 1) + ": ");
+            System.out.print("ENTER THE GRADE " + (i + 1) + ": ");
             while (true) {
                 float input = scanner.nextFloat();
                 if (input >= 0) {
@@ -24,14 +30,14 @@ public class Average {
 
         System.out.print("DOES EACH GRADE HAVE AN INDIVIDUAL WEIGHT? (Y/N): ");
         while (true) {
-            char grade_y_n = scanner.next().charAt(0);
-            if (grade_y_n == 'Y') {
-                float final_average = average_grades(numGrades, individualGrade);
-                System.out.println("THE WEIGHTED AVERAGE IS: " + final_average);
+            char gradeYN = scanner.next().charAt(0);
+            if (gradeYN == 'Y') {
+                float finalAverage = averageGrades(numGrades, individualGrade);
+                System.out.println("THE WEIGHTED AVERAGE IS: " + finalAverage);
                 break;
-            } else if (grade_y_n == 'N') {
+            } else if (gradeYN == 'N') {
                 System.out.println("THE AVERAGE IS: " + bruteAverage / numGrades);
-                System.exit(0);
+                break;
             } else {
                 System.out.println("INVALID INPUT. PLEASE ENTER 'Y' OR 'N': ");
                 continue;
@@ -39,7 +45,7 @@ public class Average {
         }
     }
 
-    private int nGrades () {
+    private int nGrades() {
         System.out.print("ENTER THE NUMBER OF GRADES: ");
         while (true) {
             int input = (int) scanner.nextFloat();
@@ -52,16 +58,16 @@ public class Average {
         }
     }
 
-    private float average_grades (int num_grades, float[] individual_grade) {
-        float true_average = 0;
-        float total_weight = 0;
-        for (int j = 0; j < num_grades; j++) {
+    private float averageGrades(int numGrades, float[] individualGrade) {
+        float trueAverage = 0;
+        float totalWeight = 0;
+        for (int j = 0; j < numGrades; j++) {
             while (true) {
                 System.out.print("ENTER THE WEIGHT OF THE GRADE " + (j + 1) + ": ");
                 float input = scanner.nextFloat();
                 if (input > 0) {
-                    true_average += individual_grade[j] * input;
-                    total_weight += input;
+                    trueAverage += individualGrade[j] * input;
+                    totalWeight += input;
                     break;
                 } else {
                     System.out.println("INVALID INPUT. PLEASE ENTER A POSITIVE NUMBER: ");
@@ -69,6 +75,6 @@ public class Average {
                 }
             }
         }
-        return true_average / total_weight;
+        return trueAverage / totalWeight;
     }
 }
